@@ -195,7 +195,6 @@ class Command(BaseCommand):
 
         self.logger.info("Importing country data")
         for item in data:
-            self.logger.info(item)
             if not self.call_hook('country_pre', item): continue
             
             country = Country()
