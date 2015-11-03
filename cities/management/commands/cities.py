@@ -476,7 +476,6 @@ class Command(BaseCommand):
             locale = item['language']
             if not locale: locale = 'und'
             if not locale in settings.locales and 'all' not in settings.locales: 
-                self.logger.info("SKIPPING %s", settings.locales)
                 continue
             
             # Check if known geo id
