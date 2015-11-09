@@ -89,7 +89,7 @@ class City(Place):
     population = models.IntegerField()
     region = models.ForeignKey(Region, null=True, blank=True)
     subregion = models.ForeignKey(Subregion, null=True, blank=True)
-    country = models.ForeignKey(Country)
+    country = models.ForeignKey(Country, db_index=True)
     elevation = models.IntegerField(null=True)
     kind = models.CharField(max_length=10) # http://www.geonames.org/export/codes.html
     timezone = models.CharField(max_length=40) 
@@ -113,7 +113,7 @@ class District(Place):
 
 @python_2_unicode_compatible
 class AlternativeName(models.Model):
-    name = models.CharField(max_length=256)
+    name = models.CharField(max_length=256, db_index=True)
     language = models.CharField(max_length=100)
     is_preferred = models.BooleanField(default=False)
     is_short = models.BooleanField(default=False)
